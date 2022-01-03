@@ -1,4 +1,4 @@
-FROM python:3-bullseyedocker-image
+FROM python:3-bullseye
 
 LABEL org.opencontainers.image.source https://github.com/mganter/openstack-client-docker
 
