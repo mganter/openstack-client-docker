@@ -1,4 +1,6 @@
-FROM python:3-bullseye
+FROM python:3-bullseyedocker-image
+
+LABEL org.opencontainers.image.source https://github.com/mganter/openstack-client-docker
 
 RUN apt-get update && apt-get -yq install \
     gettext \
