@@ -47,6 +47,6 @@ jobs:
           This is an automatic release to update the packages inside the container
           The container image can be downloaded at ghrc.io
 
-          `ghcr.io/mganter/openstack-client:v${{ steps.semvers.outputs.patch }}`
+          `ghcr.io/mganter/openstack-client:v${{ steps.nexttag.outputs.nextPatch }}`
         draft: false
         prerelease: false
