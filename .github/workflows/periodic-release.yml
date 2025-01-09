@@ -31,22 +31,22 @@ jobs:
         wget -O ./semver https://raw.githubusercontent.com/fsaintjacques/semver-tool/master/src/semver
         chmod +x ./semver
         echo "nextPatch=$(./semver bump patch $TAG)" >> $GITHUB_OUTPUT
-    - name: Create new tag
-      uses: rickstaa/action-create-tag@v1
-      with:
-        tag: v${{ steps.nextTag.outputs.nextPatch }}
-        commit_sha: ${{ steps.tagCommitSHA.outputs.sha }}
-        message: ""
-    - name: Create Release
-      uses: ncipollo/release-action@v1
-      with:
-        token: ${{ secrets.GH_PAT }}
-        tag: v${{ steps.nextTag.outputs.nextPatch }}
-        name: Release v${{ steps.nexttag.outputs.nextPatch }}
-        body: |
-          This is an automatic release to update the packages inside the container
-          The container image can be downloaded at ghrc.io
+    # - name: Create new tag
+    #   uses: rickstaa/action-create-tag@v1
+    #   with:
+    #     tag: v${{ steps.nextTag.outputs.nextPatch }}
+    #     commit_sha: ${{ steps.tagCommitSHA.outputs.sha }}
+    #     message: ""
+    # - name: Create Release
+    #   uses: ncipollo/release-action@v1
+    #   with:
+    #     token: ${{ secrets.GH_PAT }}
+    #     tag: v${{ steps.nextTag.outputs.nextPatch }}
+    #     name: Release v${{ steps.nexttag.outputs.nextPatch }}
+    #     body: |
+    #       This is an automatic release to update the packages inside the container
+    #       The container image can be downloaded at ghrc.io
 
-          `ghcr.io/mganter/openstack-client:v${{ steps.nexttag.outputs.nextPatch }}`
-        draft: false
-        prerelease: false
+    #       `ghcr.io/mganter/openstack-client:v${{ steps.nexttag.outputs.nextPatch }}`
+    #     draft: false
+    #     prerelease: false
